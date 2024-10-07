@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "dropspread",
+	"version": "${version}",
+	"name": "DropSpread",
+	"description": "Adds a gamerule for player death item spread.",
+	"authors": [
+		"TorNato"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/drop-spread-2"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/dropspread/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dropspread.DropSpread"
+		],
+		"client": [
+			"dropspread.DropSpreadClient"
+		]
+	},
+	"mixins": [
+		"dropspread.mixins.json",
+		{
+			"config": "dropspread.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "~1.19",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
