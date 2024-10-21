@@ -16,7 +16,7 @@ public abstract class PlayerEntityMixin extends Entity {
 	public PlayerEntityMixin(EntityType<?> type, Level level) {
 		super(type, level);
 	}
-	@ModifyArgs(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/item/ItemEntity;setDeltaMovement(DDD)V"),
+	@ModifyArgs(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/item/ItemEntity;setDeltaMovement(DDD)V", ordinal = 0),
 			method = "drop(Lnet/minecraft/world/item/ItemStack;ZZ)Lnet/minecraft/world/entity/item/ItemEntity;")
 	private void init(Args args) {
 		Level level = ((EntityAccessor) this).getLevel();
