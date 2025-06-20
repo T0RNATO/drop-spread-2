@@ -16,17 +16,10 @@
 	"entrypoints": {
 		"main": [
 			"dropspread.DropSpread"
-		],
-		"client": [
-			"dropspread.DropSpreadClient"
 		]
 	},
 	"mixins": [
-		"dropspread.mixins.json",
-		{
-			"config": "dropspread.client.mixins.json",
-			"environment": "client"
-		}
+		"dropspread.mixins.json"
 	],
 	"depends": {
 		"fabric-api": "*"

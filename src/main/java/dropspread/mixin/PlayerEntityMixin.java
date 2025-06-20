@@ -1,7 +1,6 @@
 package dropspread.mixin;
 
 import dropspread.DropSpread;
-import dropspread.EntityAccessor;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -19,8 +18,10 @@ public abstract class PlayerEntityMixin extends Entity {
 	@ModifyArgs(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/item/ItemEntity;setDeltaMovement(DDD)V", ordinal = 0),
 			method = "drop(Lnet/minecraft/world/item/ItemStack;ZZ)Lnet/minecraft/world/entity/item/ItemEntity;")
 	private void init(Args args) {
-		Level level = ((EntityAccessor) this).getLevel();
+		Level level = this.level();
 		double spread = level.getGameRules().getRule(DropSpread.DROP_SPREAD).get();
-		for(int i = 0; i < args.size(); i++) args.set(i, (double)args.get(i) * spread);
+
+		for (int i = 0; i < args.size(); i++)
+			args.set(i, (double) args.get(i) * spread);
 	}
 }
